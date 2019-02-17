@@ -23,4 +23,24 @@ awesomeFunctions.greeter = function(langauge = "") {
   }
 };
 
+// A function that calls back
+
+awesomeFunctions.callbackSomething = function(a, b, callback) {
+  try {
+    const val = adder(a, b);
+    callback(val);
+  } catch (e) {
+    callback(e);
+  }
+};
+
+// Helper for callbackSomething
+const adder = function(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    const err = new Error("Mega error!");
+    throw err;
+  }
+  return parseInt(a) + parseInt(b);
+};
+
 module.exports = awesomeFunctions;
