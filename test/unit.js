@@ -9,24 +9,47 @@ const assert = require("assert");
 
 const unit = {};
 
-unit["helpers.getANumber should return number"] = function(done) {
+// --- GetANumber function ---
+unit["awesomeFunctions.getANumber should return number"] = function(done) {
   const val = awesomeFunctions.getANumber();
   assert.equal(typeof val, "number");
   done();
 };
 
-// Assert that the getANumber function returns 1
-
-unit["helpers.getANumber should return 1"] = function(done) {
+unit["awesomeFunctions.getANumber should return 1"] = function(done) {
   const val = awesomeFunctions.getANumber();
   assert.equal(val, 1);
   done();
 };
 
-// Assert that the getANumber function is not returning 2
-unit["helpers.getANumber should not return 2"] = function(done) {
+unit["awesomeFunctions.getANumber should not return 2"] = function(done) {
   const val = awesomeFunctions.getANumber();
   assert.notEqual(val, 2);
+  done();
+};
+
+// --- Greeter function ---
+unit["awesomeFunctions.greeter should return something"] = function(done) {
+  const res = awesomeFunctions.greeter();
+  assert.ok(res);
+  done();
+};
+
+unit["awesomeFunctions.greeter should return 'Hej!' when called with 'swedish' as parameter"] = function(done) {
+  const res = awesomeFunctions.greeter("swedish");
+  assert.equal(res, "Hej!");
+  done();
+};
+
+unit["awesomeFunctions.greeter response should be a string"] = function(done) {
+  const res = awesomeFunctions.greeter("swedish");
+  assert.equal(typeof res, "string");
+  done();
+};
+
+unit["awesomeFunctions.greeter should return 'Hello!' when called without a parameter"] = function(done) {
+  const res = awesomeFunctions.greeter();
+  assert.equal(res, "Hello!");
   done();
 };
 
